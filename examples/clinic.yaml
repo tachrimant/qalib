@@ -1,0 +1,42 @@
+qalib: 0.1
+
+app:
+  name: clinic
+  package: com.example.clinic
+  description: Appointments for a small medical practice
+
+auth:
+  provider: jwt            # jwt | keycloak | google | github
+  roles: [admin, doctor, receptionist]
+
+entities:
+  Patient:
+    fields:
+      fullName:  { type: string, required: true, min: 2, max: 120 }
+      birthDate: { type: date }
+      phone:     { type: string, pattern: phone }
+      notes:     { type: text }
+    access:
+      read:  [doctor, receptionist]
+      write: [receptionist]
+
+  Doctor:
+    fields:
+      fullName:  { type: string, required: true }
+      specialty: { type: enum, values: [GENERAL, PEDIATRICS, CARDIOLOGY] }
+
+  Appointment:
+    fields:
+      at:     { type: datetime, required: true }
+      status: { type: enum, values: [SCHEDULED, DONE, CANCELLED], default: SCHEDULED }
+    relations:
+      patient: { to: Patient, kind: many-to-one, required: true }
+      doctor:  { to: Doctor,  kind: many-to-one, required: true }
+    access:
+      read:  [doctor, receptionist]
+      write: [receptionist]
+      delete: [admin]
+
+targets:
+  backend:  { stack: spring-boot, database: postgresql }
+  frontend: { stack: angular }

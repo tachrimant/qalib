@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+out/
+.DS_Store
+# output of `qalib generate` when run inside this repo
+/generated/

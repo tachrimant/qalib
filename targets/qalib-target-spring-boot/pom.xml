@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>dev.qalib</groupId>
+    <artifactId>qalib-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+  <artifactId>qalib-target-spring-boot</artifactId>
+  <name>Qalib Target: Spring Boot</name>
+  <dependencies>
+    <dependency><groupId>dev.qalib</groupId><artifactId>qalib-engine</artifactId></dependency>
+    <dependency><groupId>org.junit.jupiter</groupId><artifactId>junit-jupiter</artifactId></dependency>
+    <dependency><groupId>org.assertj</groupId><artifactId>assertj-core</artifactId></dependency>
+  </dependencies>
+</project>
