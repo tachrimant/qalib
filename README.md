@@ -36,4 +36,4 @@ java -jar qalib-cli/target/qalib.jar validate examples/clinic.yaml
 See [docs/dsl.md](docs/dsl.md) for the model language.
 
 ## License
-Proprietary — all rights reserved (for now).
+Proprietary — all rights reserved.
